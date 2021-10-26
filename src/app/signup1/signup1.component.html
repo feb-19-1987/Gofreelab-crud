@@ -2,34 +2,41 @@
 <br>
 
 <div class="card">
-<form>
+<form [formGroup]="signForm" (ngSubmit)="submit()">
     <h3 class="text">Sign up for Free</h3>
     <div class="form-group">
 <input type="text" id="id" formControlName="id" placeholder="Enter ID:">
+<div *ngIf="signForm.get('id').invalid && signForm.get('id').touched" class="text-danger">Id is Mandatory</div>
 </div>
  
 <br>
 <div class="form-group">
     <input type="text" id="fname" formControlName="fname" placeholder="Enter First Name:">
+    <div *ngIf="signForm.get('fname').invalid && signForm.get('fname').touched" class="text-danger">First Name is Mandatory</div>
     </div>
     <br>
 
     <div class="form-group">
         <input type="text" id="lname" formControlName="lname" placeholder="Enter Last Name:">
+        <div *ngIf="signForm.get('lname').invalid && signForm.get('lname').touched" class="text-danger">Last Name is Mandatory</div>
         </div>
         <br>
 
         <div class="form-group">
             <input type="text" id="email" formControlName="email" placeholder="Enter E-mail:">
+            <div *ngIf="signForm.get('email').invalid && signForm.get('email').touched " class="text-danger">E-mail is Mandatory</div>
+            
             </div>
             <br>
             <div class="form-group">
-                <input type="text" id="password" formControlName="password" placeholder="Enter password:">
-                </div>
+                <input type="password" id="password" formControlName="password" placeholder="Enter password:">
+                <div *ngIf="signForm.get('password').invalid && signForm.get('password').touched " class="text-danger">Password is Mandatory</div>
+            </div>
                 <br>
                 <div class="form-group">
-                    <input type="text" id="password" formControlName="password" placeholder="Confirm Password :">
-                    </div>
+                    <input type="password" id="password" formControlName="password" placeholder="Confirm Password :">
+                    <div *ngIf="signForm.get('password').invalid && signForm.get('password').touched " class="text-danger">Confirm Password</div>
+                </div>
 <br>
                     <div class="form-group">
                         <Label>Select position:</Label>
@@ -40,7 +47,7 @@
                   <option value="Student">Student</option>
                            </select>
                            <br>
-               <button class="btn btn-primary design">Submit</button>        
+               <button class="btn btn-primary design" (click)="submit()" [disabled]="signForm.invalid">Submit</button>        
         </div>
 
                    
