@@ -8,7 +8,7 @@ import {Detail} from '../Shared/detail.model'
 export class DetailService {
 detail: Detail[] = []
 
-  myUrl = "http://localhost:3000/Detail";
+  myUrl = "http://localhost:3000/Details";
   constructor(private httpclient: HttpClient) { }
   
   postDetail(det: Detail) {

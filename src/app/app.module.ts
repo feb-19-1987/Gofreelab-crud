@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from '@angular/forms';
@@ -24,7 +24,7 @@ import { PasswordValidatorComponent } from './password-validator/password-valida
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,FormsModule 
+    AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

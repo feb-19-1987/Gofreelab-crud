@@ -5,6 +5,8 @@ export class Detail {
     lname="";
     email="";
     password="";
+    password1="";
+
     position = "";
     
 }

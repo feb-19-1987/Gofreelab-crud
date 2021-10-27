@@ -5,38 +5,96 @@
 <form [formGroup]="signForm" (ngSubmit)="submit()">
     <h3 class="text">Sign up for Free</h3>
     <div class="form-group">
-<input type="text" id="id" formControlName="id" placeholder="Enter ID:">
-<div *ngIf="signForm.get('id').invalid && signForm.get('id').touched" class="text-danger">Id is Mandatory</div>
-</div>
- 
-<br>
-<div class="form-group">
-    <input type="text" id="fname" formControlName="fname" placeholder="Enter First Name:">
-    <div *ngIf="signForm.get('fname').invalid && signForm.get('fname').touched" class="text-danger">First Name is Mandatory</div>
-    </div>
+        
+  
+            <input formControlName="_id" type="hidden" id="_id" name="_id">
+            <label for="fname">person name</label>
+            <input formControlName="fname" type="text" class="form-control" id="fname" name="fname" aria-describedby="nameHelp" placeholder="Enter First name">
+            
+          </div>
+      
+          <div class="alert alert-danger" *ngIf="!signForm.controls.fname.valid && signForm.controls.fname.touched">
+                      
+            <div *ngIf="signForm.controls.fname.errors?.required">   
+                {{validationMessage.fname.required}}
+          </div>
+      
+          <div *ngIf="signForm.controls.fname.errors?.minlength">   
+            {{validationMessage.fname.minlength}}
+      </div>
+      
+      <div *ngIf="signForm.controls.name.errors?.maxlength">   
+        {{validationMessage.fname.maxlength}}
+      </div>
+        
+      </div>
+      
+      
+      
+      
     <br>
 
     <div class="form-group">
         <input type="text" id="lname" formControlName="lname" placeholder="Enter Last Name:">
-        <div *ngIf="signForm.get('lname').invalid && signForm.get('lname').touched" class="text-danger">Last Name is Mandatory</div>
+        <div class="alert alert-danger" *ngIf="!signForm.controls.lname.valid && signForm.controls.lname.touched">
+                      
+          <div *ngIf="signForm.controls.lname.errors?.required">   
+              {{validationMessage.lname.required}}
         </div>
+    
+        <div *ngIf="signForm.controls.lname.errors?.minlength">   
+          {{validationMessage.lname.minlength}}
+    </div>
+    
+    <div *ngIf="signForm.controls.name.errors?.maxlength">   
+      {{validationMessage.lname.maxlength}}
+    </div>
+      </div>
+    </div>
+    
+    
+    
         <br>
 
         <div class="form-group">
             <input type="text" id="email" formControlName="email" placeholder="Enter E-mail:">
-            <div *ngIf="signForm.get('email').invalid && signForm.get('email').touched " class="text-danger">E-mail is Mandatory</div>
+            <div class="alert alert-danger" *ngIf="!signForm.controls.email.valid && signForm.controls.email.touched">
+                      
+              <div *ngIf="signForm.controls.email.errors?.required">   
+                  {{validationMessage.email.required}}
+            </div>
+        
+            <div *ngIf="signForm.controls.email.errors?.email">   
+              {{validationMessage.email.email}}
+           </div>
+        </div> 
             
             </div>
             <br>
             <div class="form-group">
                 <input type="password" id="password" formControlName="password" placeholder="Enter password:">
-                <div *ngIf="signForm.get('password').invalid && signForm.get('password').touched " class="text-danger">Password is Mandatory</div>
-            </div>
+               
+                <div class="alert alert-danger" *ngIf="!signForm.controls.password.valid && signForm.controls.password.touched">
+                      
+                  <div *ngIf="signForm.controls.password.errors?.required">   
+                      {{validationMessage.password.required}}
+                </div>
+            
+                </div>
+                </div>
+                
                 <br>
                 <div class="form-group">
-                    <input type="password" id="password" formControlName="password" placeholder="Confirm Password :">
-                    <div *ngIf="signForm.get('password').invalid && signForm.get('password').touched " class="text-danger">Confirm Password</div>
-                </div>
+                  <input type="password1" id="password1" formControlName="password1" placeholder="Confirm password:">
+                 
+                  <div class="alert alert-danger" *ngIf="!signForm.controls.password1.valid && signForm.controls.password1.touched">
+                        
+                    <div *ngIf="signForm.controls.password1.errors?.required">   
+                        {{validationMessage.password1.required}}
+                  </div>
+              
+                  </div>
+                  </div>
 <br>
                     <div class="form-group">
                         <Label>Select position:</Label>
@@ -47,7 +105,8 @@
                   <option value="Student">Student</option>
                            </select>
                            <br>
-               <button class="btn btn-primary design" (click)="submit()" [disabled]="signForm.invalid">Submit</button>        
+      
+               <button class="btn btn-primary design" (click)="submit()">Submit</button>        
         </div>
 
                    
@@ -58,3 +117,4 @@
 
 
 </div>
+
